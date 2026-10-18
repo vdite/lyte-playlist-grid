@@ -4,6 +4,8 @@ Eine schlanke Erweiterung für **[WP YouTube Lyte](https://wordpress.org/plugins
 
 Unabhängige Erweiterung, ohne Verbindung zu YouTube/Google oder den Entwicklern von WP YouTube Lyte.
 
+![Beispiel: YouTube-Playlist als 3-spaltiges LYTE-Grid](docs/screenshot.jpg)
+
 ## Funktionen
 
 - Liest öffentliche Playlists über die **YouTube Data API v3** aus.

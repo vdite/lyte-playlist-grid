@@ -4,6 +4,8 @@ A lightweight WordPress add-on for **[WP YouTube Lyte](https://wordpress.org/plu
 
 > An independent community extension. Not affiliated with YouTube, Google, or the developers of WP YouTube Lyte.
 
+![Example: a YouTube playlist rendered as a 3-column LYTE grid](docs/screenshot.jpg)
+
 ## What it does
 
 - Fetches a **public YouTube playlist** through the YouTube Data API v3.
