@@ -1,0 +1,54 @@
+# Translations template for LYTE Playlist Grid.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the LYTE Playlist Grid project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: LYTE Playlist Grid 1.2.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-17 14:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+msgid "LYTE Playlist Grid requires the active WP YouTube Lyte plugin."
+msgstr ""
+
+msgid "Invalid or missing playlist ID."
+msgstr ""
+
+msgid "Please activate WP YouTube Lyte."
+msgstr ""
+
+msgid "Add a YouTube API key in the WP YouTube Lyte settings first."
+msgstr ""
+
+#, python-format
+msgid "Unable to load YouTube playlist: %s"
+msgstr ""
+
+msgid "This playlist has no publicly accessible videos."
+msgstr ""
+
+msgid "Network error connecting to the YouTube API."
+msgstr ""
+
+#, python-format
+msgid "YouTube API error (HTTP %d). Check the API key and permissions."
+msgstr ""
+
+msgid "Invalid response from the YouTube API."
+msgstr ""
+
+msgid "Playlist exceeds 1,000 entries; the safety limit was reached."
+msgstr ""
+
+
+msgid "Deactivate the old Technickr LYTE Playlist Grid plugin to avoid duplicate shortcode registrations."
+msgstr ""

@@ -1,0 +1,36 @@
+.lyte-playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--lpg-columns, 3), minmax(0, 1fr));
+  gap: 24px 20px;
+  align-items: start;
+  width: 100%;
+}
+.lyte-playlist-item { min-width: 0; margin: 0; padding: 0; }
+.lyte-playlist-player { width: 100%; }
+/* LYTE gibt feste Inline-Playerbreiten aus; nur innerhalb dieses Grids überschreiben. */
+.lyte-playlist-grid .lyte-wrapper,
+.lyte-playlist-grid .lyte-wrapper-audio,
+.lyte-playlist-grid .lL {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+.lyte-playlist-grid .lyte,
+.lyte-playlist-grid .lyMe {
+  width: 100%;
+}
+.lyte-playlist-title {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 10px 0 0 !important;
+  padding: 0;
+  overflow-wrap: anywhere;
+}
+.lyte-playlist-message { padding: 8px 12px; border-left: 3px solid #aaa; }
+@media (max-width: 900px) {
+  .lyte-playlist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .lyte-playlist-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+}
