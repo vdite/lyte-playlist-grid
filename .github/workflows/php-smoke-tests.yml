@@ -1,0 +1,25 @@
+name: PHP syntax and smoke tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  php-smoke:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.4', '8.2', '8.4']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - name: Lint PHP
+        run: |
+          php -l lyte-playlist-grid.php
+          php -l uninstall.php
+          php -l tests/smoke.php
+      - name: Run smoke tests
+        run: php tests/smoke.php
