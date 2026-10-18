@@ -6,6 +6,8 @@ Unabhängige Erweiterung, ohne Verbindung zu YouTube/Google oder den Entwicklern
 
 ![Beispiel: YouTube-Playlist als 3-spaltiges LYTE-Grid](docs/screenshot.jpg)
 
+Ausführliche Schritt-für-Schritt-Anleitung inklusive API-Key-Einrichtung: [YouTube Playlist in WordPress einbinden](https://mizine.de/html/youtube-playlist-wordpress-einbinden/). Live im Einsatz auf [mizine.de](https://mizine.de/getestete-wireless-carplay-adapter/).
+
 ## Funktionen
 
 - Liest öffentliche Playlists über die **YouTube Data API v3** aus.

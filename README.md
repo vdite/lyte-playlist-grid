@@ -6,6 +6,8 @@ A lightweight WordPress add-on for **[WP YouTube Lyte](https://wordpress.org/plu
 
 ![Example: a YouTube playlist rendered as a 3-column LYTE grid](docs/screenshot.jpg)
 
+Step-by-step guide (German), including the YouTube API key setup: [YouTube Playlist in WordPress einbinden](https://mizine.de/html/youtube-playlist-wordpress-einbinden/). See it live on [mizine.de](https://mizine.de/getestete-wireless-carplay-adapter/).
+
 ## What it does
 
 - Fetches a **public YouTube playlist** through the YouTube Data API v3.
