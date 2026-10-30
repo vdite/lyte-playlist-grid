@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1 — 2026-10-31
+
+- Render video titles as `<p class="lyte-playlist-title">` instead of `<h3>`, so table-of-contents plugins (e.g. Table of Contents Plus) and the page outline no longer pick them up.
+
 ## 1.2.0 — 2026-10-17
 
 - Rename the plugin and repository to **LYTE Playlist Grid**; keep **Technickr** as author.

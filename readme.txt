@@ -2,7 +2,7 @@
 Tags: youtube, playlist, video grid, wp youtube lyte, video gallery
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,9 @@ It is the `list=` parameter of your YouTube playlist URL.
 Up to 1,000 source entries, across at most 20 API pages. Private/deleted placeholders and duplicate IDs are ignored.
 
 == Changelog ==
+
+= 1.2.1 =
+* Render video titles as paragraphs instead of h3 headings, so table-of-contents plugins no longer list them.
 
 = 1.2.0 =
 * Rename plugin to LYTE Playlist Grid, add neutral shortcode, keep the legacy alias, separate cache keys, and ship renamed translations.

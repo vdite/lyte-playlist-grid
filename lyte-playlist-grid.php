@@ -2,7 +2,7 @@
 /**
  * Plugin Name: LYTE Playlist Grid
  * Description: Display public YouTube playlists as responsive grids using WP YouTube Lyte players.
- * Version: 1.2.0
+ * Version: 1.2.1
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Technickr
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class LYTE_Playlist_Grid {
-    const VERSION   = '1.2.0';
+    const VERSION   = '1.2.1';
     const CACHE_TTL = 12 * HOUR_IN_SECONDS;
     const ERROR_TTL = 15 * MINUTE_IN_SECONDS;
     const MAX_PAGES = 20; // 20 pages of 50 entries, at most 1,000 playlist items.
@@ -163,7 +163,7 @@ final class LYTE_Playlist_Grid {
             $player  = do_shortcode( '[lyte id="' . $video_id . '" /]' );
             $markup .= '<article class="lyte-playlist-item" role="listitem">';
             $markup .= '<div class="lyte-playlist-player">' . $player . '</div>';
-            $markup .= '<h3 class="lyte-playlist-title">' . esc_html( $title ) . '</h3>';
+            $markup .= '<p class="lyte-playlist-title">' . esc_html( $title ) . '</p>';
             $markup .= '</article>';
         }
         $markup .= '</div>';
