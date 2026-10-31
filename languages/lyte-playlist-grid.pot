@@ -52,3 +52,6 @@ msgstr ""
 
 msgid "Deactivate the old Technickr LYTE Playlist Grid plugin to avoid duplicate shortcode registrations."
 msgstr ""
+
+msgid "Close video"
+msgstr ""

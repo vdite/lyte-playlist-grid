@@ -13,6 +13,7 @@ Step-by-step guide (German), including the YouTube API key setup: [YouTube Playl
 - Fetches a **public YouTube playlist** through the YouTube Data API v3.
 - Automatically reflects playlist changes when its **12-hour WordPress cache** expires and the page is next requested.
 - Provides **one LYTE thumbnail/player per unique video**, with its title below.
+- Opens videos in a **lightbox** on click, so they play larger (`lightbox="0"` keeps the inline player).
 - Defaults to **3 columns** on desktops, 2 on tablets, and 1 on phones. Configurable 1–4 desktop columns.
 - Loads this add-on's CSS only when the shortcode is used; preserves other LYTE players' styling.
 - Reuses the API key configured in WP YouTube Lyte (including its `lyte_filter_yt_api_key` filter).
@@ -45,6 +46,12 @@ API quota and any restrictions on your key are governed by Google. An HTTP-refer
 
    ```text
    [lyte_playlist_grid id="PL-DHsM-Gc8c9rWf4gqzhkBbdwtpuDLOaB" columns="4"]
+   ```
+
+   To play videos inline instead of in the lightbox:
+
+   ```text
+   [lyte_playlist_grid id="PL-DHsM-Gc8c9rWf4gqzhkBbdwtpuDLOaB" lightbox="0"]
    ```
 
 This is the playlist ID after `list=` in the YouTube playlist URL.

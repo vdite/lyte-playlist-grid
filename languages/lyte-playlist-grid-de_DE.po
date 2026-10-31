@@ -53,3 +53,6 @@ msgstr "Playlist mit mehr als 1.000 Einträgen: Sicherheitsgrenze erreicht."
 
 msgid "Deactivate the old Technickr LYTE Playlist Grid plugin to avoid duplicate shortcode registrations."
 msgstr "Bitte das alte Plugin Technickr LYTE Playlist Grid deaktivieren, um doppelte Shortcode-Registrierungen zu vermeiden."
+
+msgid "Close video"
+msgstr "Video schließen"

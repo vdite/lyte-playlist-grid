@@ -20,13 +20,51 @@
   width: 100%;
 }
 .lyte-playlist-title {
-  font-size: 16px;
-  line-height: 1.4;
-  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 400;
   margin: 10px 0 0 !important;
   padding: 0;
   overflow-wrap: anywhere;
 }
+/* Lightbox (assets/lightbox.js) */
+.lpg-lightbox {
+  width: min(92vw, 1200px, calc(84vh * 16 / 9));
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+.lpg-lightbox::backdrop { background: rgba(0, 0, 0, .85); }
+.lpg-lightbox-frame {
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .5);
+}
+.lpg-lightbox-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+.lpg-lightbox-close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .15);
+  color: #fff;
+  font: 28px/40px sans-serif;
+  cursor: pointer;
+}
+.lpg-lightbox-close:hover,
+.lpg-lightbox-close:focus-visible { background: rgba(255, 255, 255, .3); }
+html.lpg-lightbox-open { overflow: hidden; }
 .lyte-playlist-message { padding: 8px 12px; border-left: 3px solid #aaa; }
 @media (max-width: 900px) {
   .lyte-playlist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

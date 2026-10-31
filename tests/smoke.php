@@ -18,6 +18,7 @@ $GLOBALS['tr_expiry'] = array();
 $GLOBALS['api_queue'] = array();
 $GLOBALS['api_calls'] = array();
 $GLOBALS['css_calls'] = array();
+$GLOBALS['js_calls']  = array();
 $GLOBALS['actions']   = array();
 $GLOBALS['shortcodes'] = array();
 $GLOBALS['admin']     = true;
@@ -55,10 +56,12 @@ function absint( $value ) { return abs( (int) $value ); }
 function esc_attr( $value ) { return htmlspecialchars( $value, ENT_QUOTES, 'UTF-8' ); }
 function esc_html( $value ) { return htmlspecialchars( $value, ENT_QUOTES, 'UTF-8' ); }
 function esc_html__( $message, $domain ) { return $message; }
+function esc_attr__( $message, $domain ) { return htmlspecialchars( $message, ENT_QUOTES, 'UTF-8' ); }
 function __( $message, $domain ) { return $message; }
 function sanitize_text_field( $value ) { return trim( strip_tags( $value ) ); }
 function plugins_url( $path, $file ) { return 'https://example.org/plugins/' . $path; }
 function wp_enqueue_style( $handle, $src, $dependencies, $version ) { $GLOBALS['css_calls'][] = array( $handle, $version ); }
+function wp_enqueue_script( $handle, $src, $dependencies, $version, $in_footer ) { $GLOBALS['js_calls'][] = array( $handle, $in_footer ); }
 function is_singular() { return $GLOBALS['singular']; }
 function get_post() { return $GLOBALS['post']; }
 function has_shortcode( $content, $tag ) { return strpos( $content, '[' . $tag ) !== false; }
@@ -111,6 +114,9 @@ assert_contains( 'Second', $out, 'Video title present.' );
 test_ok( false === strpos( $out, '<b>Second</b>' ), 'HTML tags are not injected.' );
 assert_contains( '--lpg-columns:4', $out, 'Grid columns option is rendered.' );
 test_ok( count( $GLOBALS['css_calls'] ) === 1, 'CSS loaded for rendered grid.' );
+test_ok( count( $GLOBALS['js_calls'] ) === 1 && true === $GLOBALS['js_calls'][0][1], 'Lightbox script loaded in footer by default.' );
+assert_contains( 'data-lpg-lightbox', $out, 'Grid is marked for the lightbox.' );
+assert_contains( 'data-lpg-video="AAAAAAAAAAA"', $out, 'Items carry their video ID.' );
 test_ok( count( $GLOBALS['tr'][ $backup ] ) === 3, 'Expiring backup stored without duplicates.' );
 test_ok( $GLOBALS['tr_expiry'][ $backup ] === 29 * DAY_IN_SECONDS, 'Fallback has 29-day expiration.' );
 test_ok( 'https://example.org/' === $GLOBALS['api_calls'][0][1]['headers']['Referer'], 'Site URL sent in API request header.' );
@@ -122,6 +128,9 @@ test_ok( substr_count( $out2, 'role="listitem"' ) === 3, 'Cached results rendere
 $out_new = call_user_func( $GLOBALS['shortcodes']['lyte_playlist_grid'], array( 'id' => $id ), null, 'lyte_playlist_grid' );
 $out_legacy = call_user_func( $GLOBALS['shortcodes']['technickr_playlist'], array( 'id' => $id ), null, 'technickr_playlist' );
 test_ok( $out_new === $out_legacy, 'New and legacy shortcodes render identical output.' );
+$GLOBALS['js_calls'] = array();
+$out_inline = call_user_func( $render, array( 'id' => $id, 'lightbox' => 'no' ) );
+test_ok( false === strpos( $out_inline, 'data-lpg-lightbox' ) && ! $GLOBALS['js_calls'], 'lightbox="no" keeps the inline LYTE player.' );
 assert_contains( 'class="lyte-playlist-grid"', $out_new, 'Public markup uses neutral CSS classes.' );
 test_ok( count( $GLOBALS['api_calls'] ) === 2, 'Neither shortcode triggers requests on a warm cache.' );
 

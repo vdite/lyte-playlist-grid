@@ -13,6 +13,7 @@ Ausführliche Schritt-für-Schritt-Anleitung inklusive API-Key-Einrichtung: [You
 - Liest öffentliche Playlists über die **YouTube Data API v3** aus.
 - Aktualisiert die Playlist automatisch nach **12 Stunden Cache-Laufzeit**, sobald danach die Seite abgerufen wird.
 - Zeigt ein Vorschaubild samt LYTE-Player und Titel pro Video.
+- Öffnet Videos beim Klick in einer **Lightbox**, damit sie größer abspielen (`lightbox="0"` behält den Inline-Player).
 - Standardmäßig **3 Spalten** am Desktop, 2 auf Tablets, 1 mobil; am Desktop sind 1–4 Spalten wählbar.
 - Lädt das eigene CSS nur auf Seiten mit dem Shortcode.
 - Nutzt den vorhandenen API-Schlüssel von WP YouTube Lyte und dessen Filter.
@@ -43,6 +44,12 @@ Optional vier Spalten am Desktop:
 
 ```text
 [lyte_playlist_grid id="PL-DHsM-Gc8c9rWf4gqzhkBbdwtpuDLOaB" columns="4"]
+```
+
+Videos öffnen sich beim Klick in einer Lightbox. Sollen sie stattdessen direkt im Raster abspielen:
+
+```text
+[lyte_playlist_grid id="PL-DHsM-Gc8c9rWf4gqzhkBbdwtpuDLOaB" lightbox="0"]
 ```
 
 Die Playlist-ID steht in der YouTube-URL nach `list=`.

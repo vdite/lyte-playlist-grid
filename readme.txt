@@ -2,7 +2,7 @@
 Tags: youtube, playlist, video grid, wp youtube lyte, video gallery
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.2.1
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,7 @@ Requires WP YouTube Lyte and an API key for YouTube Data API v3 `playlistItems.l
 2. Upload and activate LYTE Playlist Grid.
 3. Insert `[lyte_playlist_grid id="YOUR_PLAYLIST_ID"]` in a Shortcode block.
 4. Optionally set `[lyte_playlist_grid id="YOUR_PLAYLIST_ID" columns="4"]`.
+5. Videos open in a lightbox on click. Use `lightbox="0"` to play them inline instead.
 
 == Frequently Asked Questions ==
 
@@ -51,6 +52,9 @@ It is the `list=` parameter of your YouTube playlist URL.
 Up to 1,000 source entries, across at most 20 API pages. Private/deleted placeholders and duplicate IDs are ignored.
 
 == Changelog ==
+
+= 1.3.0 =
+* Open videos in a lightbox on click (disable with lightbox="0"); titles in regular weight.
 
 = 1.2.1 =
 * Render video titles as paragraphs instead of h3 headings, so table-of-contents plugins no longer list them.

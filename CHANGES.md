@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 — 2026-10-31
+
+- Open videos in a lightbox on click, so they play larger than the grid thumbnail. Uses the privacy-enhanced `youtube-nocookie.com` embed like LYTE; `lightbox="0"` keeps LYTE's inline player.
+- Show video titles in regular weight instead of semi-bold.
+
 ## 1.2.1 — 2026-10-31
 
 - Render video titles as `<p class="lyte-playlist-title">` instead of `<h3>`, so table-of-contents plugins (e.g. Table of Contents Plus) and the page outline no longer pick them up.

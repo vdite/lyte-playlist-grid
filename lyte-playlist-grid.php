@@ -2,7 +2,7 @@
 /**
  * Plugin Name: LYTE Playlist Grid
  * Description: Display public YouTube playlists as responsive grids using WP YouTube Lyte players.
- * Version: 1.2.1
+ * Version: 1.3.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Technickr
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class LYTE_Playlist_Grid {
-    const VERSION   = '1.2.1';
+    const VERSION   = '1.3.0';
     const CACHE_TTL = 12 * HOUR_IN_SECONDS;
     const ERROR_TTL = 15 * MINUTE_IN_SECONDS;
     const MAX_PAGES = 20; // 20 pages of 50 entries, at most 1,000 playlist items.
@@ -84,6 +84,16 @@ final class LYTE_Playlist_Grid {
         );
     }
 
+    private static function enqueue_lightbox() {
+        wp_enqueue_script(
+            'lyte-playlist-grid-lightbox',
+            plugins_url( 'assets/lightbox.js', __FILE__ ),
+            array(),
+            self::VERSION,
+            true
+        );
+    }
+
     private static function lyte_available() {
         // LYTE registers its shortcode only for the frontend.
         return shortcode_exists( 'lyte' ) && function_exists( 'lyte_parse' );
@@ -114,7 +124,7 @@ final class LYTE_Playlist_Grid {
 
     public static function render( $atts, $content = null, $tag = 'lyte_playlist_grid' ) {
         $atts = shortcode_atts(
-            array( 'id' => '', 'columns' => '3' ),
+            array( 'id' => '', 'columns' => '3', 'lightbox' => '1' ),
             $atts,
             in_array( $tag, array( 'lyte_playlist_grid', 'technickr_playlist' ), true ) ? $tag : 'lyte_playlist_grid'
         );
@@ -145,8 +155,16 @@ final class LYTE_Playlist_Grid {
             return self::editor_message( __( 'This playlist has no publicly accessible videos.', 'lyte-playlist-grid' ) );
         }
 
+        // lightbox="0" keeps LYTE's inline player.
+        $lightbox = ! in_array( strtolower( trim( (string) $atts['lightbox'] ) ), array( '0', 'false', 'no', 'off' ), true );
+
         self::enqueue_styles();
-        $markup = '<div class="lyte-playlist-grid" style="--lpg-columns:' . esc_attr( (string) $columns ) . '" role="list">';
+        $markup = '<div class="lyte-playlist-grid" style="--lpg-columns:' . esc_attr( (string) $columns ) . '" role="list"';
+        if ( $lightbox ) {
+            self::enqueue_lightbox();
+            $markup .= ' data-lpg-lightbox data-lpg-close="' . esc_attr__( 'Close video', 'lyte-playlist-grid' ) . '"';
+        }
+        $markup .= '>';
         $seen   = array();
         foreach ( $videos as $video ) {
             if ( ! is_array( $video ) || ! isset( $video['id'], $video['title'] ) ) {
@@ -161,7 +179,7 @@ final class LYTE_Playlist_Grid {
 
             // WP YouTube Lyte owns the actual click-to-load video player.
             $player  = do_shortcode( '[lyte id="' . $video_id . '" /]' );
-            $markup .= '<article class="lyte-playlist-item" role="listitem">';
+            $markup .= '<article class="lyte-playlist-item" role="listitem" data-lpg-video="' . esc_attr( $video_id ) . '">';
             $markup .= '<div class="lyte-playlist-player">' . $player . '</div>';
             $markup .= '<p class="lyte-playlist-title">' . esc_html( $title ) . '</p>';
             $markup .= '</article>';
